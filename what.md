@@ -1,6 +1,9 @@
 ---
-youtubeId: DjB9-9mg0sU
-layout: default
+youtubeId: DjB9-9mg0sU---
+subtitle: K. Kelchtermans
+title: What is DoShiCo?
+layout: post
+permalink: what
 ---
 
 {% include youtubeplayer.html id=page.youtubeId %}{: .center-image }

@@ -1,11 +1,20 @@
 ---
-layout: default
-author: K. Kelchtermans
+subtitle: K. Kelchtermans
 title: Try it yourself!
+layout: post
 permalink: try
 ---
 
-In order to use DoShiCo as a benchmark we made everything accessible. In the following steps we explain first how to get the general required software packages. The second step describes the comunication with the drone either in simulator or in the real world. The final step explains how you can reproduce our results published in [our paper]({{ "/assets/paper.pdf" | absolute_url }}).
+We made everything required to reproduce the results accessible. In the following steps we explain first the installation of the three big software packages: ROS, Gazebo and Tensorflow. Second we go over the installation of small packages. The final step entail the usage of the code in order to reproduce our results as well as get new results of your own.
+
+If you use the code in your own work, please refer correctly to [our paper]({{ "/assets/paper.pdf" | absolute_url }} "Pdf view of DoShiCo paper").
+
+{% highlight tex %}
+	@article{ kelchter2017doshico,
+		title={DoShiCo: Domain Shift challenge for Control},
+		author={Kelchtermans, Klaas and Tuytelaars, Tinne},
+		year={2017}}
+{% endhighlight %}
 
 <h2>1. Install ROS, Gazebo, Tensorflow, Nvidia</h2>
 DoShiCo requires a combination of ROS (kinetic), Gazebo (7) and Tensorflow-gpu (1.11). Installing ROS is most convenient on a Ubuntu (16.4) operating system. The full installation can be tedious. Therefore we supply a docker image that can easily be pulled from the dockerhub page.
