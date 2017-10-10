@@ -1,6 +1,9 @@
 ---
+youtubeId: DjB9-9mg0sU
 layout: default
 ---
+
+{% include youtubeplayer.html id=page.youtubeId %}{: .center-image }
 
 DoShiCo is a benchmark to compare the performance of different deep neural network policies on the task of monocular collision avoidance. Between the simulated and the real world is a very large domain shift. Dealing with this domain shift is crucial for making deep neural policies perform well in the real world. It is however very difficult to compare different training methods or architectures as long as there is no clear benchmark. DoShiCo responds to this demand.
 
