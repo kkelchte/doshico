@@ -27,7 +27,7 @@ In order to get a sense of the performance in the real world, an offline almost-
 
 ![almost-collision dataset]({{ "/assets/img/almost_col_basic.png" | absolute_url }}){: .center-image }
 
-More details can be found in [our paper]({{ "/assets/paper.pdf" | absolute_url }}).
+More details can be found in [our paper]({{ "/assets/paper.pdf" | absolute_url }} "Open PDF view").
 
 Training deep neural control networks end-to-end for real-world applications 
 typically requires big demonstration datasets in the real world or big sets consisting of a large variety of realistic and closely related  3D CAD models. These real or virtual data should, moreover, have very similar characteristics to the conditions expected at test time. These stringent requirements and the time consuming data collection processes that they entail, are probably the most important impediment that keeps deep neural policies from being deployed in real-world applications.
