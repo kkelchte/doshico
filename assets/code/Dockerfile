@@ -22,6 +22,7 @@ USER ${username}
 ENV HOME /home/${username}
 ENV DISPLAY ${display}
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/nvidia/lib64:/usr/local/cuda-8.0/lib64:/usr/local/cudnn/lib64
+ENV PATH=$PATH:/usr/local/nvidia/bin
 ENTRYPOINT ["./ros_entrypoint.sh"]
 
 # Installing git clone could be done if you added a different home dir here:

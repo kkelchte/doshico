@@ -54,3 +54,91 @@ $ gzserver --verbose
 ...[Msg] Connected to gazebo master @ http://127.0.0.1:11345
 [Msg] Publicized address: 172.17.0.2
 ```
+
+<!-- OLD TEXT NOT USED
+Running the docker image with your home folder mounted and the local graphical session forwarded should not be more than a few lines:
+{% highlight bash %}
+# nvidia-docker ensures that the nvidia drivers is mounted with the correct version
+# -e option sets the correct environment variable
+# -v option mounts a directory locally to a directory in the docker container
+# --name your container so that you can commit it later to an image for reuse
+# add -it for interactive session
+# bash demands a running bash shell
+$ sudo docker run \
+	--name container_name \
+	-it \
+	kkelchte/ros_gazebo_tensorflow \
+	bash
+root@somenumbers:/# id
+	uid=0(root) gid=0(root) groups=0(root)
+{% endhighlight %}
+
+You should now be able to enter the image as a root (uid=0). This will prevent write access to your home folder as it has a different user identity. It is therefore best to add yourself as a user in current container.
+{% highlight bash %}
+# in a different window check your normal user id
+$ echo $UID
+1234
+# if your user id is not 1000, you'll have to add it in the docker container with the following command
+root@somenumbers:/# adduser --uid YOURID YOURNAME
+# see if you can enter in the running container from another terminal window as the other user
+$ sudo docker exec \
+		-it \
+		-u YOURID \
+		-v $HOME:/home/guest\
+		-e HOME=/home/guest\
+		container_name bash
+YOURNAME@somenumbers:/$ cd
+YOURNAME@somenumbers:~$ pwd
+/home/guest
+YOURNAME@somenumbers:~$ touch test
+# if your user ID was added correctly you can now update the container to a local image 
+# with the 'docker commit' command in a new local terminal
+$ sudo docker commit container_name YOUR_DOCKER_REPOSITORY
+{% endhighlight %}
+
+Congratulations! You have created a local copy of my docker image with your user ID added. Now you can adjust you own mounted home folder from within the image.
+
+It is time to make some checks to see if everything went well.
+{% highlight bash %}
+# start your container from your updated image
+# --rm deletes the container after logging out
+# -v mounts your home directory to /home/YOURNAME
+# -v /tmp/.X11-unix mounts the X server allowing software within use it
+# -e sets the DISPLAY environments variable
+# it is important to run a container from the image from your repository as you have a user account in it.
+$ sudo docker run \
+	-it \
+	--rm \
+	-u YOURID \
+	-v $HOME:/home/YOURNAME \
+	-e $HOME=/home/YOURNAME \
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-e DISPLAY=$DISPLAY \
+	YOUR_DOCKER_REPOSITORY bash
+# $$ indicates the bash line within the container
+# source ros setup:
+$$ source "/opt/ros/$ROS_DISTRO/setup.bash"
+# start ros and a gui to see if it displays correctle:
+$$ roscore &
+...
+$$ rosrun rqt_gui rqt_gui
+# If everything went correctly you should see the rqt graphical user interface running on ROS
+{% endhighlight %}
+
+Preferrably your computer has a Nvidia GPU with nvidia drivers and the CUDA toolkit(>8.0) installed. This is required for Tensorflow-gpu. If not, a local [Tensorflow](https://www.tensorflow.org/install/install_linux#InstallingVirtualenv) version can be installed for instance in a virtual environment in your mounted home folder. 
+
+In case you have a Nvidia-GPU the <a href="https://github.com/NVIDIA/nvidia-docker" target="_blank">Nvidia-docker plugin (1.0.1)</a> should be installed. Check the installation in this way:
+
+{% highlight bash %}
+$ sudo nvidia-docker run \
+		-it \
+		-u YOURID \
+		-v $HOME:/home/guest\
+		-e HOME=/home/guest\
+		container_name bash
+[inside container]$ ls /dev
+...nvidia0...
+#There
+{% endhighlight %} -->
+
+
