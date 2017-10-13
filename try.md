@@ -42,10 +42,32 @@ If all big software packages (ROS, Gazebo, Tensorflow) are installed or accessib
 * <a href="https://github.com/kkelchte/pilot_online" target="_blank">Online Training</a> represents the code block for training the DNN policy in an online fashion with tensorflow. The checkpoints are used and kept in a log folder.
 * <a href="https://github.com/kkelchte/pilot_offline" target="_blank">Offline Training</a> represents the code block for training the DNN policy offline from offline data.
 * <a href="https://homes.esat.kuleuven.be/~kkelchte/checkpoints/models.zip" target="_blank">Log</a> is a folder containing the latest checkpoints and is used during offline and online training.
-* <a href="https://homes.esat.kuleuven.be/~kkelchte/pilot_data/data.zip" target="_blank">Data</a> is a folder containing data captured by the expert in the DoShiCo environments and used for offline training.
+* The data contains of 3 sets:
+	* <a href="https://homes.esat.kuleuven.be/~kkelchte/data/pilot_data/canyon_forest_sandbox.zip" target="_blank">Canyon_forest_sandbox</a> with data collected by the expert in the training environments (canyon, forest, sandbox).
+	* <a href="https://homes.esat.kuleuven.be/~kkelchte/data/pilot_data/esat.zip" target="_blank">ESAT</a> with data collected by the expert in the validation environment (ESAT).
+	* <a href="https://homes.esat.kuleuven.be/~kkelchte/data/pilot_data/almost_collision_set.zip" target="_blank">The Almost-Collision dataset</a> with data collected by hand in the real world of almost collisions imposing only one correct action.
 
 
 ![frontpage]({{ "/assets/img/project.png" | absolute_url }}){: .center-image }
+
+
+<h2>3. The Challenge</h2>
+The DoShiCo challenge focusses on dealing with the domain shift when training a policy in basic environments and see if it adapts to more realistic or even realistic environments. The policy is one of basic 1d collision-avoidance.
+
+![variance]({{ "/assets/img/frontpage.png" | absolute_url }}){: .center-image }
+
+The policy has to be based solely in monocular RGB input. The **training** happens in three types of basic simulated environments: Canyon, Forest and Sandbox. The environments are generated on the fly at random. The training procedure is left open: online/offline, reinforcement or imitation learning, ... . 
+
+Validate/Test the policy **online** in a more realistic ESAT corridor. The performance is measured in average flying distance in the 2 directions of the corridor while flying at a constant speed of 0.8m/s.
+
+Validate/Test the policy **offline** on the Almost-Collision dataset. Comparing performances in the real-world is hard due to many external factors (battery state, wind turbulences,...). The Almost-Collision dataset contains small trajectories capturing very near collisions that can only be avoided with the correct action. The performance should be measured as accuracies. The continuous control in  yaw  is  discretized  with thresholds ±0.3 for left, straight and right.
+
+The large variance that comes along with training deep neural network policies makes it hard to compare different methods. We strongly recommend to include a graph similar to the image bellow. It depicts the performance over the percentage of policies reaching this performance.
+
+![variance]({{ "/assets/img/variance.png" | absolute_url }}){: .center-image }
+
+Goodluck!
+
 
 <!-- 
 <h4>Drivers</h4>
