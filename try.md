@@ -39,21 +39,23 @@ If all big software packages (ROS, Gazebo, Tensorflow) are installed or accessib
 
 * <a href="https://github.com/kkelchte/hector_quadrotor" target="_blank">Drone Simulator</a> is a simulated version of the bebop 2 drone based on the Hector quadrotor package of TU Darmstad.
 * <a href="https://github.com/kkelchte/simulation-supervised" target="_blank">Simulated-Supervised</a> is a ROS package forming the interface between the simulated drone and the DNN policy
-* <a href="https://github.com/kkelchte/pilot_online" target="_blank">Online Training</a> represents the code block for training the DNN policy in an online fashion with tensorflow. The checkpoints are used and kept in a log folder.
-* <a href="https://github.com/kkelchte/pilot_offline" target="_blank">Offline Training</a> represents the code block for training the DNN policy offline from offline data.
-* <a href="https://homes.esat.kuleuven.be/~kkelchte/checkpoints/models.zip" target="_blank">Log</a> is a folder containing the latest checkpoints and is used during offline and online training.
+* <a href="https://github.com/kkelchte/online_training" target="_blank">Online Training</a> represents the code block for training the DNN policy in an online fashion with tensorflow. The checkpoints are used and kept in a log folder.
+* <a href="https://github.com/kkelchte/offline_training" target="_blank">Offline Training</a> represents the code block for training the DNN policy offline from offline data.
+* Log folder with checkpoints:
+	* [imagenet-pretrained mobilenet 0.25](https://homes.esat.kuleuven.be/~kkelchte/checkpoints/mobilenet_025.zip){: target="_blank"}
+	* [doshico-pretrained NAUX](https://homes.esat.kuleuven.be/~kkelchte/checkpoints/naux.zip){: target="_blank"}
+	* [doshico-pretrained AUXD](https://homes.esat.kuleuven.be/~kkelchte/checkpoints/auxd.zip){: target="_blank"}
 * The data contains of 3 sets:
 	* <a href="https://homes.esat.kuleuven.be/~kkelchte/data/pilot_data/canyon_forest_sandbox.zip" target="_blank">Canyon_forest_sandbox</a> with data collected by the expert in the training environments (canyon, forest, sandbox).
 	* <a href="https://homes.esat.kuleuven.be/~kkelchte/data/pilot_data/esat.zip" target="_blank">ESAT</a> with data collected by the expert in the validation environment (ESAT).
 	* <a href="https://homes.esat.kuleuven.be/~kkelchte/data/pilot_data/almost_collision_set.zip" target="_blank">The Almost-Collision dataset</a> with data collected by hand in the real world of almost collisions imposing only one correct action.
 
+![frontpage]({{ "/assets/img/project.png" | absolute_url }}){: .center-image}
 
-![frontpage]({{ "/assets/img/project.png" | absolute_url }}){: .center-image }
+The installation of the packages is explained with <a href="https://github.com/kkelchte/doshico/tree/master/assets/instructions" target="_blank">two scripts</a>:
 
-The installation of the packages is explained with two scripts:
-1. [Step 1](): Installing and testing of the offline training setting.
-2. [Step 2](): Installing and testing of the online performance by flying in ESAT simulated environment.
-
+1. <a href="https://github.com/kkelchte/doshico/tree/master/assets/instructions/step_one.sh" target="_blank">Step 1</a>: Installing and testing of the offline training setting.
+1. <a href="https://github.com/kkelchte/doshico/tree/master/assets/instructions/step_two.sh" target="_blank">Step 2</a>: Installing and testing of the online performance by flying in ESAT simulated environment.
 The second step is only possible if the first step is finished successfully. The scripts guide you through the process of downloading, setting environment variables and testing in the docker container.
 
 <h2>3. The Challenge</h2>

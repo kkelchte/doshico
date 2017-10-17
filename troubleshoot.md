@@ -7,7 +7,7 @@ permalink: trouble
 
 Starting to work with docker can be a bit more challenging as one might expect. We added this page to cover the most probable issues step by step. 
 
-## Prerequisites
+# Installing Prerequisites
 
 In order to run the docker image the following packages are required: [**docker (CE)**](https://www.docker.com/get-docker "get-docker"), [**nvidia-drivers**](https://developer.nvidia.com/cuda-downloads) and [**nvidia-docker**](https://github.com/NVIDIA/nvidia-docker).
 
@@ -30,6 +30,9 @@ $ nvidia-docker run --rm nvidia/cuda nvidia-smi
 ```
 
 Please validate if they are all three installed correctly before diving deeper.
+
+
+# Troubleshoot
 
 ## Running gzserver within docker image
 In order to make this work you need:
