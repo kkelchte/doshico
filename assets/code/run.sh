@@ -1,3 +1,6 @@
+#!/bin/bash
+clear
+
 # Run the image
 # Ensure that $USER and $HOME are correct environment variables
 # Check whether your graphic X11 mount point is in the /tmp folder

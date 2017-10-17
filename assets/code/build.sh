@@ -1,3 +1,6 @@
+#!/bin/bash
+clear
+
 # Ensure before running that the environment variables
 # make sense on your operating system
 

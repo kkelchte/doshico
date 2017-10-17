@@ -5,7 +5,7 @@ layout: post
 permalink: try
 ---
 
-We made everything required to reproduce the results accessible. In the following steps we explain first the installation of the three big software packages: ROS, Gazebo and Tensorflow. Second we go over the installation of small packages. The final step entails the usage of the code in order to reproduce our results as well as get new results of your own.
+We made everything required to reproduce the results **accessible**. In the following steps we explain first the installation of the three big software packages: ROS, Gazebo and Tensorflow. Second we go over the installation of small packages. The final step entails the usage of the code in order to reproduce our results as well as get new results of your own.
 
 If you use the code in your own work, please refer correctly to [our paper]({{ "/assets/paper.pdf" | absolute_url }} "Open PDF view").
 
@@ -50,6 +50,11 @@ If all big software packages (ROS, Gazebo, Tensorflow) are installed or accessib
 
 ![frontpage]({{ "/assets/img/project.png" | absolute_url }}){: .center-image }
 
+The installation of the packages is explained with two scripts:
+1. [Step 1](): Installing and testing of the offline training setting.
+2. [Step 2](): Installing and testing of the online performance by flying in ESAT simulated environment.
+
+The second step is only possible if the first step is finished successfully. The scripts guide you through the process of downloading, setting environment variables and testing in the docker container.
 
 <h2>3. The Challenge</h2>
 The DoShiCo challenge focusses on dealing with the domain shift when training a policy in basic environments and see if it adapts to more realistic or even realistic environments. The policy is one of basic 1d collision-avoidance.
