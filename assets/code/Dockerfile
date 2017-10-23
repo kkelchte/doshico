@@ -21,7 +21,7 @@ RUN export uid=$uid gid=$gid username=$username && \
 USER ${username}
 ENV HOME /home/${username}
 ENV DISPLAY ${display}
-ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/nvidia/lib64:/usr/local/cuda-8.0/lib64:/usr/local/cudnn/lib64
+ENV LD_LIBRARY_PATH=/usr/local/nvidia/lib64:/usr/local/cuda-8.0/lib64:/usr/local/cudnn/lib64:$LD_LIBRARY_PATH
 ENV PATH=$PATH:/usr/local/nvidia/bin
 ENTRYPOINT ["./ros_entrypoint.sh"]
 

@@ -38,7 +38,7 @@ Once the prerequisites (docker, nvidia and nvidia-docker) are fullfilled, you ca
 If all big software packages (ROS, Gazebo, Tensorflow) are installed or accessible in a docker image, it is now time to clone the local ROS- and Tensorflow-packages for flying the drone with a DNN policy. As we want you to easily adjust the packages, we did not include the code in the docker image. The structure of the packages are depicted bellow. The arrows indicate dependencies.
 
 * <a href="https://github.com/kkelchte/hector_quadrotor" target="_blank">Drone Simulator</a> is a simulated version of the bebop 2 drone based on the Hector quadrotor package of TU Darmstad.
-* <a href="https://github.com/kkelchte/simulation-supervised" target="_blank">Simulated-Supervised</a> is a ROS package forming the interface between the simulated drone and the DNN policy
+* <a href="https://github.com/kkelchte/simulation_supervised" target="_blank">Simulated-Supervised</a> is a ROS package forming the interface between the simulated drone and the DNN policy
 * <a href="https://github.com/kkelchte/online_training" target="_blank">Online Training</a> represents the code block for training the DNN policy in an online fashion with tensorflow. The checkpoints are used and kept in a log folder.
 * <a href="https://github.com/kkelchte/offline_training" target="_blank">Offline Training</a> represents the code block for training the DNN policy offline from offline data.
 * Log folder with checkpoints:
