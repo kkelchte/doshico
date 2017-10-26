@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>What is DoShiCo? | DoShiCo</title>
+<meta property="og:title" content="What is DoShiCo?" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Domain Shift challenge for Control." />
+<meta property="og:description" content="Domain Shift challenge for Control." />
+<link rel="canonical" href="http://localhost:4000/what" />
+<meta property="og:url" content="http://localhost:4000/what" />
+<meta property="og:site_name" content="DoShiCo" />
+<script type="application/ld+json">
+{"name":null,"description":"Domain Shift challenge for Control.","author":null,"@type":"WebPage","url":"http://localhost:4000/what","publisher":null,"image":null,"headline":"What is DoShiCo?","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="Domain Shift challenge for Control."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=6195bc27c3511918ca7590082cff9f5a5241f384">
+  </head>
+  <body>
+    <section class="page-header">
+     <h1 class="project-name">What is DoShiCo?</h1>
+     <h2 class="project-tagline">K. Kelchtermans</h2>
+
+    </section>
+
+    <section class="main-content">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/DjB9-9mg0sU?rel=0" frameborder="0" allowfullscreen="" class="center-image"></iframe>
+
+<p>DoShiCo is a benchmark to compare the performance of different deep neural network policies on the task of monocular collision avoidance. Between the simulated and the real world is a very large domain shift. Dealing with this domain shift is crucial for making deep neural policies perform well in the real world. It is however very difficult to compare different training methods or architectures as long as there is no clear benchmark. DoShiCo responds to this demand.</p>
+
+<p><img src="http://localhost:4000/assets/img/frontpage.png" alt="frontpage" class="center-image" /></p>
+
+<p>DoShiCo represents a dummy domain shift in simulation as well as an offline test bench with real-world data. The training happens in three types of basic simulated environments defined in Gazebo.</p>
+
+<ul>
+  <li><strong>Canyon</strong>: a corridor of two straight walls with constant width and bending corners varying in angle. Flying distance: 45m</li>
+  <li><strong>Forest</strong>: a set of cylinders on varying locations with constant density. Flying distance: 45m</li>
+  <li><strong>Sandbox</strong>: a big room in varying colors and objects randomly selected from 13 different models. Flying distance: 7m</li>
+</ul>
+
+<p><img src="http://localhost:4000/assets/img/expsenvs_esat.png" alt="experimental setup environments" class="center-image" /></p>
+
+<p>Validation happens by flying <strong>online</strong> through a more realistic environment, called ESAT.</p>
+
+<p>In order to get a sense of the performance in the <strong>real world</strong>, an offline almost-collision dataset is provided in which collision would certainly occur if the wrong action was applied. Flying online in the real world can be tedious and is very dependent on external factors like wifi connections or battery status. The almost-collision dataset makes it possible to compare policies on real-world data quantitatively.</p>
+
+<p><img src="http://localhost:4000/assets/img/almost_col_basic.png" alt="almost-collision dataset" class="center-image" /></p>
+
+<p>More details can be found in <a href="http://localhost:4000/assets/paper.pdf" title="Open PDF view">our paper</a>.</p>
+
+<p style="color:gray; font-size: 80%; text-align: center;">Training deep neural control networks end-to-end for real-world applications 
+typically requires big demonstration datasets in the real world or big sets consisting of a large variety of realistic and closely related  3D CAD models. These real or virtual data should, moreover, have very similar characteristics to the conditions expected at test time. These stringent requirements and the time consuming data collection processes that they entail, are probably the most important impediment that keeps deep neural policies from being deployed in real-world applications.
+Therefore, we advocate an alternative approach, where instead of avoiding any domain shift by carefully selecting the training data, the goal is to learn a policy that can cope with this domain shift. To this end, we propose a new challenge: to train a model in very basic synthetic environments, far from realistic, in a way that it can fly in more realistic environments as well as take the control decisions on real-world data.</p>
+
+<p>The code and rules for benchmarking are explained <a href="/try">here</a>.</p>
+
+
+      <footer class="site-footer">
+          <span class="site-footer-owner"><a href="/doshico">Home</a> (Contact: klaas.kelchtermans ~at~ esat.kuleuven.be).</span>
+          <!-- <span class="site-footer-owner"><a href="https://kkelchte.github.io/doshico">Back</a> (Contact: klaas.kelchtermans ~at~ esat.kuleuven.be).</span> -->
+      </footer>
+    </section>
+
+    
+  </body>
+
+
+
+</html>

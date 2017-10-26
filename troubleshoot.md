@@ -58,6 +58,21 @@ $ gzserver --verbose
 [Msg] Publicized address: 172.17.0.2
 ```
 
+## GAZEBO models not found
+In case you have a similar error as the title please ensure that the environment variable GAZEBO_MODEL_PATH is set correctly.
+```bash
+export GAZEBO_MODEL_PATH=/home/${username}/simsup_ws/src/simulation_supervised/simulation_supervised_demo/models
+```
+
+## Uninstall
+If you followed the instruction scripts, all the data and code should be grouped in a docker_home directory in your home folder.
+In the case that you used your own home folder as docker_home, you'll have to remove the following dirs:
+```bash
+$ rm -rf ~/pilot_data ~/drone_ws ~/simsup_ws ~/tensorflow
+```
+You can get rid of the image in docker with `docker rmi doshico_image doshico_image`.
+
+
 <!-- OLD TEXT NOT USED
 Running the docker image with your home folder mounted and the local graphical session forwarded should not be more than a few lines:
 {% highlight bash %}

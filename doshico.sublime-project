@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "~/doshico",
+			"folder_exclude_patterns": [".*"],
+			"file_exclude_patterns": [".*"],
+		},
+		{
+			"path": "~/docker_home",
+			"folder_exclude_patterns": [".*"],
+			"file_exclude_patterns": [".*"],
+		}
+	]
+}
