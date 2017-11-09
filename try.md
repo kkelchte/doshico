@@ -13,6 +13,7 @@ If you use the code in your own work, please refer correctly to [our paper]({{ "
 	@article{ kelchter2017doshico,
 		title={DoShiCo: Domain Shift challenge for Control},
 		author={Kelchtermans, Klaas and Tuytelaars, Tinne},
+		arxivid={1710.09860},
 		year={2017}}
 {% endhighlight %}
 
