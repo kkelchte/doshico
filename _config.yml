@@ -2,7 +2,7 @@ title: DoShiCo
   
 description: Domain Shift challenge for Control.
 show_downloads: false
-google_analytics:
+google_analytics: UA-109679980-1
 theme: jekyll-theme-cayman
 favicon: assets/favicon.ico
 
