@@ -19,8 +19,14 @@ If you use the code in your own work, please refer correctly to [our paper]({{ "
 
 
 
-<h2><a href="https://github.com/kkelchte/doshico/tree/master/assets/code" target="_blank">1. Build a Docker Image</a></h2>
-DoShiCo requires a combination of [ROS (kinetic)](http://wiki.ros.org/kinetic/Installation "wiki.ros.org"), [Gazebo (7)](http://gazebosim.org/tutorials?tut=install_ubuntu&ver=7.0 "gazebosim.org") and [Tensorflow-gpu (1.11)](https://www.tensorflow.org/ "tesorflow.org") with [nvidia](https://developer.nvidia.com/cuda-downloads "cuda-download") (CUDA >=8.0). Installing ROS is most convenient on a Ubuntu (16.4) operating system. The full installation can be tedious. Therefore we supply a docker image with all four requirements that can easily be pulled from the [dockerhub page](https://hub.docker.com/ "hub.docker.com"). Before you can do this, you'll have to have [docker](https://docs.docker.com/engine/installation/ 'docs.docker.com/engine/installation') installed and running. We also assume you have an nvidia GPU available with drivers installed as well as [nvidia-docker](https://github.com/NVIDIA/nvidia-docker "github/nvidia-docker"). We also provide a [troubleshoot page](trouble/#prerequisites "troubleshoot") with more instructions on the installation of the prerequisits.
+<h2><a href="https://github.com/kkelchte/doshico/tree/master/assets/code" target="_blank">1. Get the Ros_Gazebo_Tensorflow Image</a></h2>
+DoShiCo requires a combination of [ROS (kinetic)](http://wiki.ros.org/kinetic/Installation "wiki.ros.org"), [Gazebo (7)](http://gazebosim.org/tutorials?tut=install_ubuntu&ver=7.0 "gazebosim.org") and [Tensorflow-gpu (1.11)](https://www.tensorflow.org/ "tesorflow.org") with [nvidia](https://developer.nvidia.com/cuda-downloads "cuda-download") (CUDA >=8.0). Installing ROS is most convenient on a Ubuntu (16.4) operating system. The full installation can be tedious. Therefore we supply a docker image with all four requirements that can easily be pulled from the [dockerhub page](https://hub.docker.com/ "hub.docker.com"). 
+The docker image can be used with **docker** or with [**singularity**](http://singularity.lbl.gov/docs-docker). The advantage of using docker, is that you can modify the image yourself though it requires root access to your computer. The advantage of using singularity is that it does not require nvidia-docker. Singularity can access the GPU with the --nv option from version 2.3<.
+
+Note: The docker image has Xpra installed. This makes it possible to run applications without using a graphical session. The latter is especially suited in combination with a computing cluster where graphical sessions are often not allowed. Instructions on running the image with xpra is left out of this page for readibility.
+
+<h3>Using Docker</h3>
+The next steps explain the installation using docker. You'll have to have [docker](https://docs.docker.com/engine/installation/ 'docs.docker.com/engine/installation') installed and running. We also assume you have an nvidia GPU available with drivers installed as well as [nvidia-docker](https://github.com/NVIDIA/nvidia-docker "github/nvidia-docker"). We also provide a [troubleshoot page](trouble/#prerequisites "troubleshoot") with more instructions on the installation of the prerequisits.
 
 Once the prerequisites (docker, nvidia and nvidia-docker) are fullfilled, you can use a local version of the image with the following scripts. Please read the script files before running as some environment variables might be system dependent.
 
@@ -28,11 +34,9 @@ Once the prerequisites (docker, nvidia and nvidia-docker) are fullfilled, you ca
 1. Run the script the `build.sh` script in order to create a doshico_image.
 1. (Optional) Use the `run.sh`, `save.sh` and `test.sh 0` to play around with the image and container if you're not used to docker. In case you encounter a problem, you might find the solution [here](troubleshoot.md "Troubleshoot page"). If not, feel free to contact me.
 
-
-Note: The docker image has Xpra installed. This makes it possible to run applications without using a graphical session. The latter is especially suited in combination with a computing cluster where graphical sessions are often not allowed. Instructions on running the image with xpra is left out of this page for readibility.
-
-
-
+<h3>Using Singularity</h3>
+>1. Install Singularity with [these instructions](http://singularity.lbl.gov/quickstart).
+1. Pull the docker image and run a shell: `singularity shell --nv docker://kkelchte/ros_gazebo_tensorflow`
 
 <h2>2. Install ROS- and Tensorflow-packages</h2>
 If all big software packages (ROS, Gazebo, Tensorflow) are installed or accessible in a docker image, it is now time to clone the local ROS- and Tensorflow-packages for flying the drone with a DNN policy. As we want you to easily adjust the packages, we did not include the code in the docker image. The structure of the packages are depicted bellow. The arrows indicate dependencies.
@@ -51,11 +55,10 @@ If all big software packages (ROS, Gazebo, Tensorflow) are installed or accessib
 
 ![frontpage]({{ "/assets/img/project.png" | absolute_url }}){: .center-image}
 
-The installation of the packages is explained with two scripts:
+The download of the packages as well as adjusting the paths is performed by two scripts:
 
 > * <a href="https://github.com/kkelchte/doshico/tree/master/assets/instructions/step_one.sh" target="_blank">Step 1</a>: Installing and testing the **offline** setting.
-* <a href="https://github.com/kkelchte/pilot/blob/master/scripts/step_two.sh" target="_blank">Step 2</a>: Installing and testing the **online** setting. 
-
+* <a href="https://github.com/kkelchte/pilot/blob/master/scripts/step_two.sh" target="_blank">Step 2</a>: Installing and testing the **online** setting. Note that this script should run within a docker image (with Docker or Singularity) after adjusting your $HOME environment path.
 
 <h2>3. The Challenge</h2>
 The DoShiCo challenge focusses on dealing with the domain shift when training a policy in basic environments and see if it adapts to more realistic and real-world environments. The goal is to perform monocular collision avoidance with a UAV over 1 direction.
