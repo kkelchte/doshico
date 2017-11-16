@@ -4,6 +4,7 @@ subtitle: K. Kelchtermans
 title: What is DoShiCo?
 layout: post
 permalink: what
+tags: domain adaptation policy control autonomy navigation
 ---
 
 {% include youtubeplayer.html id=page.youtubeId %}{: .center-image }
