@@ -1,4 +1,7 @@
-# Experiments to be conducted in the future
+# Experiments to be conducted at the side
+
+### Influence of training in different order: canyon -> forest -> sandbox vs canyon -> canyon+forest -> sandbox+canyon+forest
+
 
 ### Relationship between Canyon-Forest-Sandbox and corresponding Almost-Collision data
 
@@ -63,7 +66,7 @@ The online evaluation in ESAT:
 | doshico_auxd_can/doshico_2 | 1 | 0/20 |
 | doshico_auxd_can/doshico_9 | 2 | 0/20 |
 
+Surprisingly it is the forest data that seems to provide to most usefull information for the model to fly online through ESAT>
 
-### Influence of training in different order: canyon -> forest -> sandbox vs canyon -> canyon+forest -> sandbox+canyon+forest
 
 
